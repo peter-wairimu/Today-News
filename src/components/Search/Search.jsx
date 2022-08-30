@@ -1,8 +1,7 @@
 import React from 'react'
 import  TextField from '@mui/material/TextField';
 import './search.css'
-
-
+// import styled from 'styled-components';
 
 const Search = () => {
   return (
@@ -23,5 +22,10 @@ const Search = () => {
     </div>
   )
 }
-
+// const TextField=styled.input`
+// padding:10px 40px;
+// border-radius:20px;
+// border: none;
+// background-color: var(--color-background);
+// `
 export default Search

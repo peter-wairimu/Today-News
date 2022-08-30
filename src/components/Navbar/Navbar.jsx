@@ -7,15 +7,10 @@ import {IoNewspaperOutline} from 'react-icons/io5';
 import {MdOutlineVerifiedUser} from 'react-icons/md';
 import {MdOutlineStackedBarChart} from 'react-icons/md';
 import {IoMdNotificationsOutline} from 'react-icons/io';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 import './navbar.css';
-import Home from "../../container/Home/Home";
-import Magazine from "../../container/Magazine/Magazine";
-import Vedio from "../../container/Vedio/Vedio";
-import Pool from "../../container/Pool/Pool";
 
-// src/container/Magazine/Magazine.jsx
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -27,7 +22,7 @@ const Navbar = () => {
             <a href="/"><h1>News</h1></a>
         </div>
 
-        <Router>
+        
           <ul  className={isMobile ? "nav-links-mobile" : "app_navbar-links"}
           onClick={() => setIsMobile(false)}
           
@@ -48,14 +43,8 @@ const Navbar = () => {
             <li className="p_opensans"><span className="navbar_icon"><IoMdNotificationsOutline /></span></li>
           </ul>
 
-          <Routes>
-            <Route path="/" element={<Home/>}></Route>
-            <Route path="/vedio" element={<Vedio/>}></Route>
-            <Route path="/pool" element={<Pool/>}></Route>
-            <Route path="/magazine" element={<Magazine/>} ></Route>
-          </Routes>
             
-        </Router>
+        
 
         <div className="app__navbar-login">
         <Search />           

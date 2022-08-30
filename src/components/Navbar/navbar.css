@@ -7,6 +7,7 @@
     background-color: var(--color-white);
     flex-direction: row;
     
+    
 
 
 }
@@ -66,6 +67,10 @@
 }
 
 @media screen and (max-width: 780px){
+    .app_navbar{
+       padding: 2rem;
+
+    }
     .app_navbar-logo{
         display: flex;
         position: absolute;
@@ -84,7 +89,6 @@
     list-style: none;
     background-color: var(--color-white);
     left: 0;
-    width: 50%;
     top: 60px;
     transition: all 0.5s ease-out;
     
