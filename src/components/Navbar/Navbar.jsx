@@ -7,7 +7,8 @@ import {IoNewspaperOutline} from 'react-icons/io5';
 import {MdOutlineVerifiedUser} from 'react-icons/md';
 import {MdOutlineStackedBarChart} from 'react-icons/md';
 import {IoMdNotificationsOutline} from 'react-icons/io';
-import { TextField } from '@mui/material';
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Search from "../Search/Search";
 import './navbar.css';
 
 
@@ -20,6 +21,7 @@ const Navbar = () => {
             <h1>News</h1>
         </div>
 
+        
         <ul className="app_navbar-links">
             <li className="p_opensans"><span className="navbar_icon"><BiHomeAlt /></span> Home</li>
             <li className="p__opensans"><a href="#about"><span className="navbar_icon"><TbMovie /></span> Vedio</a></li>
@@ -32,14 +34,7 @@ const Navbar = () => {
 
         </ul>
         <div className="app__navbar-login">
-        <div className="search">
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          fullWidth
-          label="Search"
-        />
-      </div>
+        <Search />
         <div />
                     
       </div>
