@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="app_navbar">
         <div className="app_navbar-logo">
-            <h1>News</h1>
+            <a href="/"><h1>News</h1></a>
         </div>
 
         <Router>
@@ -44,7 +44,7 @@ const Navbar = () => {
             <li className="p_opensans">
               <Link to="/magazine"><span className="navbar_icon"><IoNewspaperOutline /></span> Magazine</Link>
             </li>
-            <li className="p_opensans"><span className="navbar_icon"><MdOutlineVerifiedUser /></span></li>
+            <li className="p_opensans"><span className="navbar_icon"><MdOutlineVerifiedUser color="#3CCF4E"/></span></li>
             <li className="p_opensans"><span className="navbar_icon"><IoMdNotificationsOutline /></span></li>
           </ul>
 

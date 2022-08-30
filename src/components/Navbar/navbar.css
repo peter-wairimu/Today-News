@@ -6,6 +6,7 @@
     padding: 1rem 2rem;
     background-color: var(--color-white);
     flex-direction: row;
+    
 
 
 }
@@ -17,6 +18,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 
 }
 .navbar_icon{
@@ -51,9 +53,8 @@
 
 .app_navbar-links li:hover{
     color: #EB1D36;
-    text-decoration: underline;
     border-bottom-width: 2rem;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     border-bottom: 3px solid;
     line-height: .8rem;
   
