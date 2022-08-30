@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {HiMenuAlt2} from 'react-icons/hi';
 import {BiHomeAlt} from 'react-icons/bi';
 import {IoCloseSharp} from 'react-icons/io5';
@@ -18,7 +18,9 @@ import Pool from "../../container/Pool/Pool";
 // src/container/Magazine/Magazine.jsx
 
 const Navbar = () => {
-    const [toggleMenu, setToggleMenu] = React.useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+
   return (
     <nav className="app_navbar">
         <div className="app_navbar-logo">
@@ -26,7 +28,10 @@ const Navbar = () => {
         </div>
 
         <Router>
-          <ul  className="app_navbar-links">
+          <ul  className={isMobile ? "nav-links-mobile" : "app_navbar-links"}
+          onClick={() => setIsMobile(false)}
+          
+          >
             <li className="p_opensans">
               <Link to="/"><span className="navbar_icon"><BiHomeAlt /></span> Home</Link>
             </li>
@@ -39,8 +44,8 @@ const Navbar = () => {
             <li className="p_opensans">
               <Link to="/magazine"><span className="navbar_icon"><IoNewspaperOutline /></span> Magazine</Link>
             </li>
-            <li className="p__opensans"><span className="navbar_icon"><MdOutlineVerifiedUser /></span></li>
-            <li className="p__opensans"><span className="navbar_icon"><IoMdNotificationsOutline /></span></li>
+            <li className="p_opensans"><span className="navbar_icon"><MdOutlineVerifiedUser /></span></li>
+            <li className="p_opensans"><span className="navbar_icon"><IoMdNotificationsOutline /></span></li>
           </ul>
 
           <Routes>
@@ -53,25 +58,14 @@ const Navbar = () => {
         </Router>
 
         <div className="app__navbar-login">
-        <Search />
-        <div />
-                    
+        <Search />           
       </div>
-      <div className="app__navbar-smallscreen">
-        <HiMenuAlt2 color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
-        {toggleMenu && (
-          <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
-            <IoCloseSharp fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
-            <ul className="app__navbar-smallscreen_links">
-              <li><a href="#home" onClick={() => setToggleMenu(false)}>Home</a></li>
-              <li><a href="#about" onClick={() => setToggleMenu(false)}>About</a></li>
-              <li><a href="#menu" onClick={() => setToggleMenu(false)}>Menu</a></li>
-              <li><a href="#awards" onClick={() => setToggleMenu(false)}>Awards</a></li>
-              <li><a href="#contact" onClick={() => setToggleMenu(false)}>Contact</a></li>
-            </ul>
-          </div>
-        )}
-      </div>
+      <button className="mobile-menu-icon"
+      onClick={() => setIsMobile(!isMobile)}
+      >
+
+        {isMobile ? <i><IoCloseSharp/></i> : <i><HiMenuAlt2 /> </i>}
+      </button>
     </nav>
   )
 }
