@@ -7,11 +7,15 @@ import {IoNewspaperOutline} from 'react-icons/io5';
 import {MdOutlineVerifiedUser} from 'react-icons/md';
 import {MdOutlineStackedBarChart} from 'react-icons/md';
 import {IoMdNotificationsOutline} from 'react-icons/io';
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Search from "../Search/Search";
 import './navbar.css';
+import Home from "../../container/Home/Home";
+import Magazine from "../../container/Magazine/Magazine";
+import Vedio from "../../container/Vedio/Vedio";
+import Pool from "../../container/Pool/Pool";
 
-
+// src/container/Magazine/Magazine.jsx
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -21,18 +25,33 @@ const Navbar = () => {
             <h1>News</h1>
         </div>
 
-        
-        <ul className="app_navbar-links">
-            <li className="p_opensans"><span className="navbar_icon"><BiHomeAlt /></span> Home</li>
-            <li className="p__opensans"><a href="#about"><span className="navbar_icon"><TbMovie /></span> Vedio</a></li>
-            <li className="p__opensans"><a href="#menu"><span className="navbar_icon"><MdOutlineStackedBarChart /></span> Pools</a></li>
-            <li className="p__opensans"><a href="#awards"><span className="navbar_icon"><IoNewspaperOutline /></span> Magazines</a></li>
-            <li className="p__opensans"><a href="#contact"><span className="navbar_icon"><MdOutlineVerifiedUser /></span></a></li>
-            <li className="p__opensans"><a href="#contact"><span className="navbar_icon"><IoMdNotificationsOutline /></span></a></li>
+        <Router>
+          <ul  className="app_navbar-links">
+            <li className="p_opensans">
+              <Link to="/"><span className="navbar_icon"><BiHomeAlt /></span> Home</Link>
+            </li>
+            <li className="p_opensans">
+              <Link to="/vedio"><span className="navbar_icon"><TbMovie /></span> Vedio</Link>
+            </li>
+            <li className="p_opensans">
+            <Link to="/pool"><span className="navbar_icon"><MdOutlineStackedBarChart /></span> Pool</Link>
+            </li>
+            <li className="p_opensans">
+              <Link to="/magazine"><span className="navbar_icon"><IoNewspaperOutline /></span> Magazine</Link>
+            </li>
+            <li className="p__opensans"><span className="navbar_icon"><MdOutlineVerifiedUser /></span></li>
+            <li className="p__opensans"><span className="navbar_icon"><IoMdNotificationsOutline /></span></li>
+          </ul>
 
+          <Routes>
+            <Route path="/" element={<Home/>}></Route>
+            <Route path="/vedio" element={<Vedio/>}></Route>
+            <Route path="/pool" element={<Pool/>}></Route>
+            <Route path="/magazine" element={<Magazine/>} ></Route>
+          </Routes>
+            
+        </Router>
 
-
-        </ul>
         <div className="app__navbar-login">
         <Search />
         <div />
